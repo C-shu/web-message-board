@@ -52,7 +52,7 @@ if ($is_valid_auther_name && $is_valid_message) {
 
     // INSERT クエリを作成する
     // :author_name、:message はプレースホルダという。後で $stmt->bindValue を使用して値をセットするときのニックネームのようなもの。自分で決められる。
-    $query = 'INSERT INTO posts (author_name, message) VALUES (:author_name, :message)';
+    $query = 'INSERT INTO posts (author_name, message, created_at) VALUES (:author_name, :message, now())';
 
     // SQL 実行の準備 (実行はされない)
     $stmt = $dbh->prepare($query);
